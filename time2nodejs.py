@@ -2,6 +2,7 @@ import sys
 import os
 from io import StringIO
 import contextlib
+import subprocess
 
 
 @contextlib.contextmanager
