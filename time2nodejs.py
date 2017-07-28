@@ -27,7 +27,8 @@ if __name__ == "__main__":
     with stdoutIO() as s:
         try:
             tmpfold = os.environ["TMPDIR"]
-            tmpfile = "%s%s" % (tmpfold, "script.js")
+            tmpfile = "%s/%s" % (tmpfold, "script.js")
+            print(tmpfile)
             f = open(tmpfile, 'w')
             print(st, file=f)
             f.close()
