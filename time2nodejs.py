@@ -28,11 +28,12 @@ if __name__ == "__main__":
         try:
             tmpfold = os.environ["TMPDIR"]
             tmpfile = "%s/%s" % (tmpfold, "script.js")
-            print(tmpfile)
+            # print(tmpfile)
             f = open(tmpfile, 'w')
             print(st, file=f)
             f.close()
-            os.execlp("node", "", tmpfile)
+            p1 = subprocess.Popen(["node", tmpfile], stdout=subprocess.PIPE)
+            print(p1.stdout.read().decode('utf-8'))
         except BaseException as e:
             print(e)
     print(s.getvalue())
