@@ -31,7 +31,7 @@ if __name__ == "__main__":
             f = open(tmpfile, 'w')
             print(st, file=f)
             f.close()
-            os.execlp("npm", "", tmpfile)
+            os.execlp("node", "", tmpfile)
         except BaseException as e:
             print(e)
     print(s.getvalue())
