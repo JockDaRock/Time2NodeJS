@@ -33,8 +33,12 @@ if __name__ == "__main__":
             f = open(tmpfile, 'w')
             print(st, file=f)
             f.close()
-            p1 = subprocess.Popen(["node", tmpfile], stdout=subprocess.PIPE)
-            print(p1.stdout.read().decode('utf-8'))
+            p1 = subprocess.Popen(["node", tmpfile], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            p2, p3 = p1.stdout.read().decode('utf-8'), p1.stderr.read().decode('utf-8')
+            if len(p2) > 0:
+                print(p2)
+            else:
+                print(p3)
         except BaseException as e:
             print(e)
     print(s.getvalue())
