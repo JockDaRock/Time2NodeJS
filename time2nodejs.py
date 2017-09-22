@@ -27,7 +27,7 @@ if __name__ == "__main__":
     # print(st)
     with stdoutIO() as s:
         try:
-            tmpfold = os.environ["TMPDIR"]
+            tmpfold = os.getenv("TMPDIR", "/tmp")
             tmpfile = "%s/%s" % (tmpfold, "script.js")
             # print(tmpfile)
             f = open(tmpfile, 'w')
